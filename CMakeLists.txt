@@ -30,6 +30,8 @@ target_sources(
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
 
+include(cmake/CPM.cmake)
+
 if(IMGUI_BUILD_ALLEGRO5_BINDING)
     find_package(unofficial-allegro5 CONFIG REQUIRED)
     target_link_libraries(${PROJECT_NAME} PRIVATE unofficial-allegro5::allegro unofficial-allegro5::allegro_ttf unofficial-allegro5::allegro_font unofficial-allegro5::allegro_main)
