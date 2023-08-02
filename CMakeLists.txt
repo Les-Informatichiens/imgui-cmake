@@ -54,7 +54,11 @@ endif()
 
 if(IMGUI_BUILD_GLFW_BINDING)
     if(NOT EMSCRIPTEN)
-        find_package(glfw3 CONFIG REQUIRED)
+        CPMAddPackage(
+            NAME "GLFW"
+            GIT_TAG "3.3.8"
+            GITHUB_REPOSITORY "glfw/glfw"
+        )
         target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
     endif()
     target_sources(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/backends/imgui_impl_glfw.cpp)
